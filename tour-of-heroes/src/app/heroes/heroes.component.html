@@ -2,6 +2,18 @@
 	My Hero's
 </h2>
 
+<div>
+	<label>Hero Name: 
+		<input #heroName /> 
+			<!-- 	template reference variables provide direct access to an element from within the template. 	 -->
+	</label>
+	
+<!-- (click) passes input value to add() and then clears the input	 -->
+	<button (click)="add(heroName.value); heroName.value=''">
+		Add
+	</button>
+</div>
+
 <ul class='heroes' >
 
 	<li 
@@ -10,6 +22,9 @@
 		<a routerLink='/details/{{hero.id}}'>
 			<span class='badge'>{{ hero.id }}</span>{{ hero.name }}
 		</a>
+		<button class='delete' title='delete hero' (click)="delete(hero)">
+			X
+		</button>
 	</li>
 </ul>
 
